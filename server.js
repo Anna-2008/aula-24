@@ -53,9 +53,11 @@ app.get('/', (req, res) => {
 
 const rotasCategorias = require('./routes/categorias');
 const rotasProdutos = require('./routes/produtos');
+const rotasPedidos = require('./routes/produtos');
 
 app.use('/api/categorias', rotasCategorias);
 app.use('/api/produtos', rotasProdutos);
+app.use('/api/pedidos', rotasPedidos);
 
 app.use((req, res, next) => {
     res.status(404).json({
@@ -83,6 +85,8 @@ app.listen(PORTA, () => {
     console.log(`   POST   /api/produtos`);
     console.log(`   PUT    /api/produtos/:id`);
     console.log(`   DELETE /api/produtos/:id`);
+     console.log(`   GET    /api/pedidos`);
+      console.log(`   POST    /api/pedidos`);
     console.log('');
     console.log('💣 Rota de teste de erro:');
     console.log(`   GET   /api/produtos/erro-teste`);
